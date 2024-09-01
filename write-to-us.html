@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
     <title>Document</title>
     <style>
-  
         .quattrocento-regular {
             font-family: "Quattrocento", serif;
             font-weight: 400;
@@ -24,13 +23,11 @@
             font-style: normal;
         }
 
-      
         body {
-            background-color: #f8f9fa;
+            background-color: white;
             padding-top: 70px;
         }
 
-      
         .navbar {
             background-color: white;
             position: fixed;
@@ -61,14 +58,30 @@
             height: auto;
         }
 
+        .navbar-buttons {
+            margin-left: auto;
+        }
+
+        .btn-custom {
+            color: #161a2b;
+            background-color: #d1bae2;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            
+        }
+
+        .btn-custom:hover {
+            background-color:#d1bae2;
+        }
+
         /* Content Section */
         .contact-form {
             background: #fff;
-            margin: 50px auto;
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
         }
 
         .contact-form h2 {
@@ -88,20 +101,20 @@
             border-radius: 10px;
             padding: 10px 20px;
             font-size: 1.1rem;
-            color:#37474f;
+            color: #37474f;
         }
 
         .btn-primary:hover {
             background-color: #d1bae2;
             border-color: #d1bae2;
-            color:#37474f;
+            color: #37474f;
         }
+
         .btn-primary:active {
-    background-color: #d1bae2;
-    border-color: #d1bae2;
-    color: #37474f;
-}
-        
+            background-color: #d1bae2;
+            border-color: #d1bae2;
+            color: #37474f;
+        }
 
         .form-label {
             font-weight: bold;
@@ -146,7 +159,6 @@
 </head>
 
 <body>
-
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -173,9 +185,9 @@
                                 <i class="bi bi-envelope"></i> Contact Us
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Write to us</a></li>
+                                <li><a class="dropdown-item" href="write-to-us.html">Write to us</a></li>
                              
-                                <li><a class="dropdown-item" href="#">Join our team</a></li>
+                                <li><a class="dropdown-item" href="join-us.html">Join our team</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -184,12 +196,12 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
-                                <li><a class="dropdown-item" href="#">Crisis Support</a></li>
+                                <li><a class="dropdown-item" href="crisis-support.html">Crisis Support</a></li>
                               
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="about.html">
                                 <i class="bi bi-info-circle"></i> About Us
                             </a>
                         </li>
@@ -202,91 +214,114 @@
             </div>
         </nav>
     </header>
-</body>
+    
+    
 
-    <!-- Contact Form -->
-    <div class="container">
-        <div class="contact-form col-md-8 mx-auto">
-            <h2 class="text-center">Write To Us</h2>
-            <form>
-                <div class="form-group">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
+    <!-- Contact Form Section -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="hh4.jpg" class="img-fluid" alt="Image Description">
+                <img src="hh11.jpg" class="img-fluid" alt="Image Description">
+            </div>
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <h2 class="text-center">Write To Us</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMethod" class="form-label">Preferred Contact Method</label>
+                            <select class="form-control" id="contactMethod">
+                                <option>Email</option>
+                                <option>Phone</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inquiryType" class="form-label">Type of Inquiry</label>
+                            <select class="form-control" id="inquiryType">
+                                <option>General Inquiry</option>
+                                <option>Feedback</option>
+                                <option>Support Request</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comments" class="form-label">Message</label>
+                            <textarea class="form-control" id="comments" rows="4" placeholder="Your message here..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    </form>
                 </div>
-
-                <div class="form-group">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
-                </div>
-
-                <div class="form-group">
-                    <label for="contactMethod" class="form-label">Preferred Contact Method</label>
-                    <select class="form-control" id="contactMethod">
-                        <option>Email</option>
-                        <option>Phone</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="inquiryType" class="form-label">Type of Inquiry</label>
-                    <select class="form-control" id="inquiryType">
-                        <option>General Inquiry</option>
-                        <option>Feedback</option>
-                        <option>Support Request</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="comments" class="form-label">Message</label>
-                    <textarea class="form-control" id="comments" rows="4" placeholder="Your message here..."></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-            </form>
+            </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer mt-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>About Us</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Quick Links</h5>
+            <div class="row text-center text-md-start justify-content-center">
+                <div class="col-md-2">
+                    <h5>About</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5>Help</h5>
+                    <ul class="list-unstyled">
                         <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Mental Health Guide</a></li>
+                        <li><a href="#">Crisis Support</a></li>
+                        <li><a href="#">Workshops</a></li>
+                        <li><a href="#">Therapist Directory</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <h5>Follow Us</h5>
                     <ul class="list-unstyled">
+                        <li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li>
                         <li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li>
                         <li><a href="#"><i class="bi bi-twitter"></i> Twitter</a></li>
-                                                    <li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <h5>Contact Us</h5>
-                        <p><i class="bi bi-geo-alt"></i> 123 Street, City, Country</p>
-                        <p><i class="bi bi-envelope"></i> info@example.com</p>
-                        <p><i class="bi bi-phone"></i> +123 456 7890</p>
-                    </div>
+                        <li><a href="#"><i class="bi bi-youtube"></i> YouTube</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom text-center mt-4">
-                <p>© 2024 Your Company. All rights reserved.</p>
+                <p>©HappyHeadspace 2024</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    <li class="list-inline-item"><a href="#">Terms of Use</a></li>
+                    <li class="list-inline-item"><a href="#">Your Privacy Choices</a></li>
+                </ul>
             </div>
-        </footer>
-    </body>
-</html>
-
+        </div>
+    </footer>
+    </html>
+    

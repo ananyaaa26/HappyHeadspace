@@ -4,13 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
-    <title>Doctor's Dashboard - HappyHeadspace.com</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Quattrocento:wght@400;700&display=swap"
+        rel="stylesheet">
+    <title>HappyHeadspace.com</title>
     <style>
         .quattrocento-regular {
             font-family: "Quattrocento", serif;
@@ -24,9 +29,23 @@
             font-style: normal;
         }
 
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
         body {
             background-color: white;
             padding-top: 70px;
+            margin-bottom: 100px;
+            display: flex;
+            flex-direction: column;
+            font-family: "Quattrocento", serif;
+            font-weight: 400;
+            font-style: normal;
         }
 
         .navbar {
@@ -59,43 +78,32 @@
             height: auto;
         }
 
-        .content {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            margin: 50px 0;
+        .navbar-buttons {
+            margin-left: auto;
         }
 
-        .content img {
-            width: 100%;
-            max-width: 600px;
-            object-fit: cover;
+        .btn-custom {
+            color: #161a2b;
+            background-color: #c4b4cf;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 1rem;
+
         }
 
-        .text-container {
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            font-weight: 500;
-        }
-
-        .text-container h1 {
-            font-size: 3.5rem;
-            font-family: "Quattrocento", serif;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .text-container h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: #7f8c8d;
+        .btn-custom:hover {
+            background-color: #d1bae2;
         }
 
         .footer {
             background-color: rgb(23, 22, 22);
             color: #ecf0f1;
             padding: 40px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: auto;
         }
 
         .footer h5 {
@@ -122,45 +130,39 @@
             padding-left: 0;
         }
 
-        .nav-item .dropdown-toggle {
-            display: flex;
-            align-items: center;
-        }
-
-        .bi-person {
-            width: 30px;
-            height: 30px;
-        }
-
         .sections-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: row; /* Align sections horizontally */
-            gap: 100px; /* Space between sections */
-            flex: 1; /* Allow the container to grow */
+            flex-direction: row;
+            gap: 100px;
+            flex: 1;
             padding: 20px;
-            margin-top: 20px; /* Spacing from the navbar */
+            margin-top: 20px;
         }
 
-        .doctor-details, .patient-summary, .appointments {
-            flex: 1; /* Allow each section to grow */
-            max-width: 300px; /* Max width for each section */
+        .patient,
+        .general-health,
+        .appointments {
+            flex: 1;
+            max-width: 300px;
         }
 
-        .doctor-details {
+
+        .patient {
             display: flex;
-            justify-content: center; /* Center horizontally */
+            justify-content: center;
             align-items: center;
             background-color: white;
             padding: 20px;
-            margin-left: -40px;
+            margin-left: -10px;
             margin-top: 20px;
-            width: 600px; /* Updated width */
+            width: 600px;
         }
 
-        .doctor-card {
-            background-color: white;
+
+        .patient-card {
+            background-color: #fff;
             border-radius: 15px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             width: 100%;
@@ -169,12 +171,12 @@
             margin-top: 20px;
         }
 
-        .doctor-image-container {
+        .patient-image-container {
             text-align: center;
             margin-bottom: 15px;
         }
 
-        .doctor-image {
+        .patient-image {
             width: 150px;
             height: 150px;
             border-radius: 50%;
@@ -182,57 +184,80 @@
             margin-bottom: 10px;
         }
 
-        .doctor-details h2 {
+        .patient-details {
+            color: #333;
+        }
+
+        .patient-details h2 {
             font-size: 20px;
             margin-bottom: 5px;
         }
 
-        .doctor-info {
+        .patient-id {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .patient-info {
             font-size: 14px;
             text-align: left;
             line-height: 1.6;
         }
 
-        .doctor-info p {
+        .patient-info p {
             margin: 0;
         }
 
-        .doctor-info strong {
-            color: #161a2b;
+        .patient-info strong {
+            color: #555;
         }
 
-        /* Patient Summary Section Styles */
-        .patient-summary {
+
+        .general-health {
             display: flex;
-            justify-content: center; /* Center the Patient Summary section */
+            justify-content: center;
             align-items: center;
-            margin-top: -70px;
+            margin-top: -30px;
+            margin-bottom: 20px;
+            margin-left: 10px;
         }
 
-        .patient-summary-card {
-            background-color: white;
+
+        .general-health-card {
+            background-color: #fff;
             border-radius: 15px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             width: 100%;
             padding: 20px;
             text-align: center;
+
         }
 
-        .summary-item {
+        .health-status {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+        }
+
+        .health-item {
             text-align: center;
         }
 
-        .summary-item p {
+
+        .health-item p {
             margin-top: 0;
             margin-bottom: 5px;
             font-size: 14px;
             color: #333;
         }
 
-        /* Appointments Section Styles */
+
         .appointments {
             display: flex;
-            justify-content: center; /* Center the Appointments section */
+            justify-content: center;
+            margin-left: 10px;
         }
 
         .appointments-card {
@@ -241,13 +266,13 @@
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             width: 100%;
             padding: 20px;
-            text-align: left; /* Align text to the left */
+            text-align: left;
         }
 
         .appointments-card h3 {
             margin-bottom: 15px;
             color: #333;
-            font-size: 16px; /* Adjust font size as needed */
+            font-size: 16px;
         }
 
         .appointment-item {
@@ -257,83 +282,113 @@
         }
 
         .appointment-item:last-child {
-            border-bottom: none; /* Remove border for the last item */
+            border-bottom: none;
             margin-bottom: 0;
         }
 
         .appointment-item p {
-            margin: 5px 0; /* Add some margin between lines */
-            font-size: 12px; /* Adjust font size as needed */
-            color: #555; /* Text color */
+            margin: 5px 0;
+            font-size: 12px;
+            color: #555;
         }
 
         .appointment-item strong {
-            color: #333; /* Highlighted text color */
+            color: #333;
         }
 
         .section-container {
-            display: flex; /* Align sections horizontally */
-            flex-wrap: wrap; /* Allow wrapping to the next line if needed */
-            justify-content: center; /* Space out the sections evenly */
-            gap: 10px; /* Space between sections */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
             padding: 20px;
             margin-left: 140px;
             margin-right: 140px;
+
         }
 
-        /* Individual section styles */
-        .patient-history, .appointment-requests {
-            flex: 1; /* Allow each section to grow */
-            min-width: 200px; /* Minimum width for each section */
-            max-width: 33%; /* Max width for each section */
+
+        .medical-records,
+        .medical-bills,
+        .medications {
+            flex: 1;
+            min-width: 200px;
+            max-width: 33%;
             background-color: white;
             padding: 20px;
             width: 200px;
         }
 
-        /* Ensure proper styles for the cards within sections */
-        .history-card, .requests-card {
+
+        .medical-records-card,
+        .medical-bills-card,
+        .medications-card {
             background-color: #fff;
             border-radius: 15px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            width: 350px;
+            width: 370px;
             padding: 20px;
             text-align: center;
+
         }
 
-        /* Table styles */
-        .history-table, .requests-table {
+
+        .records-table,
+        .bills-table,
+        .medications-table {
             width: 100%;
             border-collapse: collapse;
-
         }
 
-        .history-table th, .requests-table th, .history-table td, .requests-table td {
+        .records-table th,
+        .bills-table th,
+        .medications-table th,
+        .records-table td,
+        .bills-table td,
+        .medications-table td {
             padding: 10px;
-            border-bottom: 1px solid #c4b4cf;
             text-align: left;
+            font-size: 12px;
         }
 
-        .history-table th, .requests-table th {
-            background-color:#c4b4cf;
+        .records-table th,
+        .bills-table th,
+        .medications-table th {
+            background-color: #c4b4cf;
             font-weight: bold;
         }
 
-        .container {
-            max-width: 80%;
-            margin: 0 auto;
-            padding: 20px;
+        .records-table td,
+        .bills-table td,
+        .medications-table td {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .medications {
+            margin-top: -110px;
+        }
+
+        .medical-bills,
+        .medical-records {
+            margin-top: -40px;
+        }
+
+        .bi-person {
+            width: 30px;
+            height: 30px;
         }
     </style>
 </head>
 <header>
-    <!-- Navbar starts here -->
+
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
                 <img src="HappyHeadspace2.png" alt="logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -343,53 +398,54 @@
                             <i class="bi bi-house"></i> Home
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-briefcase"></i> Services
-                        </a>
-                    </li>
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <i class="bi bi-envelope"></i> Contact Us
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Write to us</a></li>
-                            <li><a class="dropdown-item" href="#">Need help?</a></li>
-                            <li><a class="dropdown-item" href="#">Join our team</a></li>
+                            <li><a class="dropdown-item" href="write-to-us.html">Write to us</a></li>
+                     
+                            <li><a class="dropdown-item" href="join-us.html">Join our team</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <i class="bi bi-journal"></i> Resources
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Blogs</a></li>
-                            <li><a class="dropdown-item" href="#">Crisis Support</a></li>
-                            <li><a class="dropdown-item" href="#">Book a therapist</a></li>
+                            <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
+                            <li><a class="dropdown-item" href="crisis-support.html">Crisis Support</a></li>
+                           
                         </ul>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="about.html">
                             <i class="bi bi-info-circle"></i> About Us
                         </a>
                     </li>
                 </ul>
-            
+                <div class="navbar-buttons d-flex">
+                    <a href="booking.html" class="btn btn-custom me">Book an appointment</a>
+
+                </div>
+
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person"></i>
                         </a>
 
+
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Patient Overview</a></li>
-                            <li><a class="dropdown-item" href="#">Appointments</a></li>
-                            <li><a class="dropdown-item" href="#">Messages/Notifications</a></li>
-                            <li><a class="dropdown-item" href="#">Patient Records</a></li>
-                            <li><a class="dropdown-item" href="#">Analytics/Reports</a></li>
-                            <li><a class="dropdown-item" href="#">Tasks/Reminders</a></li>
-                            <li><a class="dropdown-item" href="#">Billing/Payments</a></li>
+                            <li><a class="dropdown-item" href="#">My Feedback</a></li>
+                            <li><a class="dropdown-item" href="#">My Appointments</a></li>
+                            <li><a class="dropdown-item" href="#">My History</a></li>
+                            <li><a class="dropdown-item" href="#">My Medical Records</a></li>
                             <li><a class="dropdown-item" href="#">View/Update Profile</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li><a class="dropdown-item" href="#">Logout</a></li>
@@ -399,64 +455,38 @@
             </div>
         </div>
     </nav>
-    <!-- Navbar ends here -->
+
 </header>
 
-
 <body>
-   
     <div class="sections-container">
-        <div class="doctor-details">
-            <div class="doctor-card">
-                <div class="doctor-image-container">
-                    <img class="doctor-image" src="doctor.jpg" alt="Doctor Image">
+        <section class="patient">
+            <div class="patient-card">
+                <div class="patient-image-container">
+                    <img src="doctor.jpg" alt="Patient Image" class="patient-image">
                 </div>
-                <h2>Dr. Aanchal Jha</h2>
-                <div class="doctor-info">
-                    <p><strong>Specialization:</strong> Psychiatry</p>
-                    <p><strong>Experience:</strong> 15 years</p>
-                    <p><strong>Contact:</strong> aanchal.jha@example.com</p>
-                    <p><strong>Location:</strong> HappyHeadspace Clinic, City</p>
-                </div>
-            </div>
-        </div>
-        <div class="patient-summary">
-            <div class="patient-summary-card">
-                <h3>Patient Summary</h3>
-                <div class="summary-item">
-                    <p><strong>Total Patients:</strong> 120</p>
-                    <p><strong>Today's Appointments:</strong> 15</p>
-                    <p><strong>New Patients:</strong> 3</p>
+                <div class="patient-details">
+                    <h2>Aanchal Jha</h2>
+                    <p class="patient-id">7009-156-4588</p>
+                    <div class="patient-info">
+                        <p><strong>Specialization:</strong> Psychiatry</p>
+                        <p><strong>Experience:</strong> 15 years</p>
+                        <p><strong>Contact:</strong> aanchal.jha@example.com</p>
+                        <p><strong>Location:</strong> HappyHeadspace Clinic, City</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="appointments">
-            <div class="appointments-card">
-                <h3>Upcoming Appointments</h3>
-                <div class="appointment-item">
-                    <p><strong>Time:</strong> 10:00 AM</p>
-                    <p><strong>Patient:</strong> John Smith</p>
-                    <p><strong>Reason:</strong> Follow-up</p>
-                </div>
-                <div class="appointment-item">
-                    <p><strong>Time:</strong> 11:30 AM</p>
-                    <p><strong>Patient:</strong> Mary Johnson</p>
-                    <p><strong>Reason:</strong> Initial Consultation</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section-container">
-        <div class="patient-history">
-            <div class="history-card">
+        </section>
+        <section class="general-health">
+            <div class="medications-card">
                 <h3>Patient History</h3>
-                <table class="history-table">
+                <table class="medications-table">
                     <thead>
                         <tr>
                             <th>Date</th>
                             <th>Patient</th>
                             <th>Details</th>
+                            <th>Medical Conditions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -464,20 +494,52 @@
                             <td>2024-08-20</td>
                             <td>Alice Williams</td>
                             <td>Routine Checkup</td>
+                            <td>Schizophrenia</td>
                         </tr>
                         <tr>
                             <td>2024-08-21</td>
                             <td>Bob Brown</td>
                             <td>Follow-up on Treatment</td>
+                            <td>Bipolar Disorder</td>
                         </tr>
+                        <tr>
+                            <td>2024-08-21</td>
+                            <td>Bob Brown</td>
+                            <td>Follow-up on Treatment</td>
+                            <td>Anxiety Disorders</td>
+                        </tr>
+
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div class="appointment-requests">
-            <div class="requests-card">
+        </section>
+
+        <section class="appointments">
+            <div class="appointments-card">
+                <h3>Upcoming Appointments</h3>
+                <div class="appointment-item">
+                    <p><strong>Date:</strong> 24th August 2024</p>
+                    <p><strong>Time:</strong> 10:00 AM</p>
+                    <p><strong>Patient:</strong> Dr. Jane Doe</p>
+                </div>
+                <div class="appointment-item">
+                    <p><strong>Date:</strong> 30th August 2024</p>
+                    <p><strong>Time:</strong> 2:00 PM</p>
+                    <p><strong>Patient:</strong> Dr. John Smith</p>
+                </div>
+                <div class="appointment-item">
+                    <p><strong>Date:</strong> 1th September 2024</p>
+                    <p><strong>Time:</strong> 1:00 PM</p>
+                    <p><strong>Patient:</strong> Dr. Olivia Lewis</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="section-container">
+        <section class="medical-records">
+            <div class="medical-records-card">
                 <h3>Appointment Requests</h3>
-                <table class="requests-table">
+                <table class="records-table">
                     <thead>
                         <tr>
                             <th>Date</th>
@@ -499,12 +561,77 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </section>
+        <section class="medications">
+            <div class="medications-card">
+                <h3>Analytics and Reports</h3>
+                <table class="medications-table">
+                    <thead>
+                        <tr>
+                            <th>Report Type</th>
+                            <th>Description</th>
+                            <th>Frequency</th>
+                            <th>Last Generated</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Patient Visits</td>
+                            <td>Summary of patient visits for the month</td>
+                            <td>Monthly</td>
+                            <td>August 2024</td>
+                        </tr>
+                        <tr>
+                            <td>Treatment Outcomes</td>
+                            <td>Analysis of treatment success rates</td>
+                            <td>Quarterly</td>
+                            <td>July 2024</td>
+                        </tr>
+                        <tr>
+                            <td>Financial Report</td>
+                            <td>Overview of practice's financial performance</td>
+                            <td>Monthly</td>
+                            <td>August 2024</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="medical-bills">
+            <div class="medical-bills-card">
+                <h3>Emergency Contacts</h3>
+                <table class="bills-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Relationship</th>
+                            <th>Phone Number</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>Spouse</td>
+                            <td>(123) 456-7890</td>
+                            <td>123 Main St, Anytown, USA</td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>Parent</td>
+                            <td>(234) 567-8901</td>
+                            <td>456 Elm St, Anytown, USA
+                </table>
+            </div>
+        </section>
+
+
     </div>
 
 </body>
-<!-- Footer -->
-<footer class="footer mt-5">
+
+
+<footer class="footer">
     <div class="container">
         <div class="row text-center text-md-start justify-content-center">
             <div class="col-md-2">
@@ -554,6 +681,5 @@
         </div>
     </div>
 </footer>
-</html>
 
 </html>
