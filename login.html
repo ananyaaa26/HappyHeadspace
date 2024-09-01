@@ -81,7 +81,7 @@
             color: #333;
         }
         .card {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.4);
             border-radius: 15px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             padding: 30px;
@@ -206,14 +206,14 @@
                     <h2 class="text-center quattrocento-bold">Login</h2>
                     <form>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                            <label for="email" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password">
                         </div>
-                        <button type="submit" class="btn btn-login w-100">Login</button>
+                        <button type="submit" class="btn btn-login w-100" id="submit">Login</button>
                         <div class="text-center mt-3">
                             <p class="mb-0">Don't have an account? <a href="sign-up.html" class="btn btn-link">Sign up here</a></p>
                         </div>
@@ -223,54 +223,83 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer mt-5">
-        <div class="container">
-            <div class="row text-center text-md-start justify-content-center">
-                <div class="col-md-2">
-                    <h5>About</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Our Story</a></li>
-                        <li><a href="#">Community</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                    <h5>Help</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                    <h5>Resources</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Mental Health Guide</a></li>
-                        <li><a href="#">Crisis Support</a></li>
-                        <li><a href="#">Workshops</a></li>
-                        <li><a href="#">Therapist Directory</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                    <h5>Follow Us</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li>
-                        <li><a href="#"><i class="bi bi-twitter"></i> Twitter</a></li>
-                        <li><a href="#"><i class="bi bi-linkedin"></i> LinkedIn</a></li>
-                    </ul>
-                </div>
+ 
+<script type="text/javascript">
+
+  // Get the input fields
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+const submitButton = document.getElementById('submit');
+
+// Add an event listener to the submit button
+submitButton.addEventListener('click', (e) => {
+  // Prevent the default form submission behavior
+  e.preventDefault();
+
+  // Get the input values
+  const username = usernameInput.value;
+  const password = passwordInput.value;
+
+  // Check the credentials
+  if (username === 'abha' && password === 'abha') {
+    // Open the doctor dashboard
+    window.location.href = 'patient-dashboard.html';
+  } else if (username === 'aanchal' && password === 'aanchal') {
+    // Open the patient dashboard
+    window.location.href = 'doctor-dashboard.html';
+  } else {
+    // Display an error message
+    alert('Wrong credentials!');
+  }
+});
+</script>
+</body>
+   <!-- Footer -->
+   <footer class="footer mt-5">
+    <div class="container">
+        <div class="row text-center text-md-start justify-content-center">
+            <div class="col-md-2">
+                <h5>About</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
             </div>
-            <div class="row footer-bottom justify-content-center">
-                <div class="col-md-6 text-center">
-                    <p>&copy; 2023 HappyHeadspace.com. All rights reserved.</p>
-                </div>
+            <div class="col-md-2">
+                <h5>Help</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h5>Resources</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Mental Health Guide</a></li>
+                    <li><a href="#">Crisis Support</a></li>
+                    <li><a href="#">Workshops</a></li>
+                    <li><a href="#">Therapist Directory</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h5>Follow Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="bi bi-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="bi bi-linkedin"></i> LinkedIn</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
-
-</body>
+        <div class="row footer-bottom justify-content-center">
+            <div class="col-md-6 text-center">
+                <p>&copy; 2023 HappyHeadspace.com. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </html>
