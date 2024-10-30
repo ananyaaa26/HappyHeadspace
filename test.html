@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- External CSS can be added here -->
+    <style>
+       
+   
+/* .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    border: 1px solid #888;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: slideIn 0.5s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); }
+    to { transform: translateY(0); }
+} */
+
+
+    /* Header Styling */
+    .navbar {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+    }
+
+    .navbar-nav {
+        align-items: center;
+        gap: 15px;
+    }
+
+    .navbar-nav .nav-link {
+        color: black;
+        padding: 0 10px;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: rgb(33, 29, 29);
+        transform: scale(1.1);
+    }
+
+    .navbar-brand img {
+        max-width: 225px;
+        height: auto;
+    }
+
+    .navbar-buttons {
+        margin-left: auto;
+    }
+
+    .btn-custom {
+        color: #161a2b;
+        background-color: #c4b4cf;
+        border: none;
+        border-radius: 50px;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .btn-custom:hover {
+        background-color: #d1bae2;
+    }
+
+    /* Footer Styling */
+    .footer {
+        background-color: rgb(23, 22, 22);
+        color: #ecf0f1;
+        padding: 40px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        margin-top: auto;
+    }
+
+    .footer h5 {
+        color: #f7f7f7;
+        margin-bottom: 20px;
+    }
+
+    .footer a {
+        color: #ecf0f1;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-bottom {
+        padding-top: 20px;
+        border-top: 1px solid #444;
+        color: #bbb;
+    }
+
+    .footer .list-unstyled {
+        padding-left: 0;
+    }
+
+
+        body {
+            background-color: #f7f7f7;
+            padding-top:70px;
+        }
+        h2 {
+            font-weight: bold;
+        }
+        p.text-danger {
+            font-weight: bold;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .form-check-label {
+            font-weight: normal;
+        }
+        .btn-success {
+            background-color: #6dbd28;
+            border: none;
+        }
+        .input-group .form-control {
+            border-radius: 0;
+        }
+        .input-group .btn-outline-secondary {
+            border-radius: 0;
+            background-color: #ffcc00;
+            border: none;
+        }
+        .container.mt-5{
+            max-width: 100%;
+            margin-top: 100px;
+
+            
+        }
+    </style>
+</head>
+<header>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="HappyHeadspace2.png" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">
+                            <i class="bi bi-house"></i> Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-envelope"></i> Contact Us
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="write-to-us.html">Write to us</a></li>
+                     
+                            <li><a class="dropdown-item" href="join-us.html">Join our team</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-journal"></i> Resources
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
+                            <li><a class="dropdown-item" href="crisis-support.html">Crisis Support</a></li>
+                           
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <i class="bi bi-info-circle"></i> About Us
+                        </a>
+                    </li>
+                </ul>
+                <div class="navbar-buttons d-flex">
+                    <a href="booking.html" class="btn btn-custom me">Book an appointment</a>
+
+                </div>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person"></i>
+                        </a>
+
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">My Feedback</a></li>
+                            <li><a class="dropdown-item" href="#">My Appointments</a></li>
+                            <li><a class="dropdown-item" href="#">My History</a></li>
+                            <li><a class="dropdown-item" href="#">My Medical Records</a></li>
+                            <li><a class="dropdown-item" href="#">View/Update Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Left Column: Billing Details -->
+            <div class="col-md-7">
+                <h2>Billing details</h2>
+                <p class="text-danger">Note: First time appointment fees is mandatory.</p>
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName" class="form-label">First name *</label>
+                            <input type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName" class="form-label">Last name *</label>
+                            <input type="text" class="form-control" id="lastName" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="company" class="form-label">Company name (optional)</label>
+                        <input type="text" class="form-control" id="company">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="country" class="form-label">Country / Region *</label>
+                            <select class="form-select" id="country" required>
+                                <option>United States (US)</option>
+                                <option>Canada</option>
+                                <option>United Kingdom</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="state" class="form-label">State *</label>
+                            <select class="form-select" id="state" required>
+                                <option>Florida</option>
+                                <option>California</option>
+                                <option>Texas</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Street address *</label>
+                        <input type="text" class="form-control" id="address" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="city" class="form-label">Town / City *</label>
+                            <input type="text" class="form-control" id="city" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="zipcode" class="form-label">ZIP Code *</label>
+                            <input type="text" class="form-control" id="zipcode" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="phone" class="form-label">Phone *</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">Email address *</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-check-input" type="checkbox" id="createAccount">
+                        <label class="form-check-label" for="createAccount">Create an account?</label>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-check-input" type="checkbox" id="shipDifferent">
+                        <label class="form-check-label" for="shipDifferent">Ship to a different address?</label>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-check-input" type="checkbox" id="emailUpdates">
+                        <label class="form-check-label" for="emailUpdates">Sign me up to receive email updates and news (optional)</label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="orderNotes" class="form-label">Order notes (optional)</label>
+                        <textarea class="form-control" id="orderNotes" rows="2" placeholder="Notes about your order, for example special notes for the delivery."></textarea>
+                    </div>
+                    <button class="btn btn-success w-100">NEXT</button>
+                </form>
+                <p class="text-danger mt-2">[309] The address value was incomplete. The address value NULL was incomplete.</p>
+            </div>
+
+            <!-- Right Column: Order Summary and Payment -->
+            <div class="col-md-5">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4>Your order</h4>
+                        <div class="d-flex justify-content-between mb-3">
+                            <div>
+                                <p>Flex 360° Carry-On Spinner Suitcase × 1</p>
+                                <p class="text-muted">Size: Carry-On</p>
+                                <p class="text-muted">Color: Rose Smoke</p>
+                            </div>
+                            <p>$249.00</p>
+                        </div>
+                        <hr>
+                        <p>Subtotal: $249.00</p>
+                        <p>Tax: <small>Taxes will be calculated after you validate your address</small></p>
+                        <h5>Total: $249.00</h5>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Coupon code" aria-label="Coupon code">
+                            <button class="btn btn-outline-secondary">APPLY COUPON</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h4>Payment</h4>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" checked>
+                            <label class="form-check-label" for="creditCard">Credit Card</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label">Card Number *</label>
+                            <input type="text" class="form-control" id="cardNumber" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="expiry" class="form-label">Expiration (MM/YY) *</label>
+                                <input type="text" class="form-control" id="expiry" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="csc" class="form-label">Card Security Code *</label>
+                                <input type="text" class="form-control" id="csc" required>
+                            </div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="terms" required>
+                            <label class="form-check-label" for="terms">I have read and agreed to the website's terms and conditions *</label>
+                        </div>
+                        <button class="btn btn-success w-100">PLACE ORDER</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bill Modal -->
+    <div id="billModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="billContent">
+                <h2>Order Summary</h2>
+                <div id="orderDetails"></div>
+            </div>
+        </div>
+    </div>
+<script>
+    
+    
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<footer class="footer">
+    <div class="container">
+        <div class="row text-center text-md-start justify-content-center">
+            <div class="col-md-2">
+                <h5>About</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h5>Help</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h5>Resources</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Mental Health Guide</a></li>
+                    <li><a href="#">Crisis Support</a></li>
+                    <li><a href="#">Workshops</a></li>
+                    <li><a href="#">Therapist Directory</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Follow Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="bi bi-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="bi bi-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom text-center mt-4">
+            <p>©HappyHeadspace 2024</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="#">Terms of Use</a></li>
+                <li class="list-inline-item"><a href="#">Your Privacy Choices</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</html>

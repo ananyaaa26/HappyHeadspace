@@ -29,7 +29,33 @@
             font-style: normal;
         }
 
-
+        .status-btn {
+        padding: 5px 10px;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+    .discard-btn {
+        padding: 5px 10px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: gray;
+        transition: background-color 0.5s ease;
+    }
+    .discard-btn:hover {
+        background-color: darkgray;
+    }
+    .appointment-item {
+        margin-bottom: 15px;
+    }
+    
+    .pending {
+        background-color: red;
+    }
+    .completed {
+        background-color: green;
+    }
         body,
         html {
             margin: 0;
@@ -516,23 +542,10 @@
 
         <section class="appointments">
             <div class="appointments-card">
+                <div id="pendingAppointmentsList">
                 <h3>Upcoming Appointments</h3>
-                <div class="appointment-item">
-                    <p><strong>Date:</strong> 24th August 2024</p>
-                    <p><strong>Time:</strong> 10:00 AM</p>
-                    <p><strong>Patient:</strong> Jane Doe</p>
-                </div>
-                <div class="appointment-item">
-                    <p><strong>Date:</strong> 30th August 2024</p>
-                    <p><strong>Time:</strong> 2:00 PM</p>
-                    <p><strong>Patient:</strong> John Smith</p>
-                </div>
-                <div class="appointment-item">
-                    <p><strong>Date:</strong> 1th September 2024</p>
-                    <p><strong>Time:</strong> 1:00 PM</p>
-                    <p><strong>Patient:</strong>  Olivia Lewis</p>
-                </div>
-            </div>
+                
+            </div></div>
         </section>
     </div>
     <div class="section-container">
@@ -628,6 +641,75 @@
 
     </div>
 
+    <script>
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const pendingAppointmentsList = document.getElementById('pendingAppointmentsList');
+        //     const appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+    
+        //     if (appointments.length === 0) {
+        //         pendingAppointmentsList.innerHTML = '<p>No pending appointments found.</p>';
+        //     } else {
+        //         appointments.forEach(appointment => {
+        //             const appointmentItem = document.createElement('div');
+        //             appointmentItem.classList.add('appointment-item');
+        //             appointmentItem.innerHTML = `
+        //                 <p><strong>Name:</strong> ${appointment.name}</p>
+        //                 <p><strong>Email:</strong> ${appointment.email}</p>
+        //                 <p><strong>Phone:</strong> ${appointment.phone}</p>
+        //                 <p><strong>Date:</strong> ${appointment.date}</p>
+        //                 <p><strong>Time:</strong> ${appointment.time}</p>
+        //             `;
+        //             pendingAppointmentsList.appendChild(appointmentItem);
+        //         });
+        //     }
+        // });
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const pendingAppointmentsList = document.getElementById('pendingAppointmentsList');
+    let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+
+    if (appointments.length === 0) {
+        pendingAppointmentsList.innerHTML = '<p>No pending appointments found.</p>';
+    } else {
+        appointments.forEach((appointment, index) => {
+            const appointmentItem = document.createElement('div');
+            appointmentItem.classList.add('appointment-item');
+            const statusClass = appointment.completed ? 'completed' : 'pending';
+            const statusText = appointment.completed ? 'Completed' : 'Pending';
+            const statusColor = appointment.completed ? 'green' : 'red';
+            appointmentItem.innerHTML = `
+                <p><strong>Name:</strong> ${appointment.name}</p>
+                <p><strong>Email:</strong> ${appointment.email}</p>
+                <p><strong>Phone:</strong> ${appointment.phone}</p>
+                <p><strong>Date:</strong> ${appointment.date}</p>
+                <p><strong>Time:</strong> ${appointment.time}</p>
+                <button class="status-btn ${statusClass}" style="background-color: ${statusColor};" onclick="markAsCompleted(this, ${index})">${statusText}</button>
+                <button class="discard-btn" onclick="discardAppointment(${index})">Discard</button>
+            `;
+            pendingAppointmentsList.appendChild(appointmentItem);
+        });
+        }
+    });
+
+    function markAsCompleted(button, index) {
+        let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+        appointments[index].completed = true;
+        localStorage.setItem('appointments', JSON.stringify(appointments));
+
+        button.classList.remove('pending');
+        button.classList.add('completed');
+        button.innerText = 'Completed';
+        button.style.backgroundColor = 'green';
+        button.style.transition = 'background-color 0.5s ease';
+    }
+
+    function discardAppointment(index) {
+    let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+    appointments.splice(index, 1);
+    localStorage.setItem('appointments', JSON.stringify(appointments));
+    location.reload(); // Reload the page to update the list
+}
+    </script>
 </body>
 
 
