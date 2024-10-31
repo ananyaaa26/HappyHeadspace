@@ -209,46 +209,61 @@ button.btn-purple:hover {
 <body>
 
 
-<header>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="HappyHeadspace2.png" alt="logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">
-                            <i class="bi bi-house"></i> Home
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                            <i class="bi bi-envelope"></i> Contact Us
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="write-to-us.html">Write to us</a></li>
-                            <li><a class="dropdown-item" href="join-us.html">Join our team</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">
-                            <i class="bi bi-info-circle"></i> About Us
-                        </a>
-                    </li>
-                </ul>
-                <div class="navbar-buttons d-flex">
-                    <a href="login.html" class="btn btn-custom me-2">Login</a>
-                    <a href="sign-up.html" class="btn btn-custom">Sign Up</a>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="HappyHeadspace2.png" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">
+                                <i class="bi bi-house"></i> Home
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-briefcase"></i> Services
+                            </a>
+                        </li> -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-envelope"></i> Contact Us
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="write-to-us.html">Write to us</a></li>
+                             
+                                <li><a class="dropdown-item" href="join-us.html">Join our team</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-journal"></i> Resources
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
+                                <li><a class="dropdown-item" href="crisis-support.html">Crisis Support</a></li>
+                              
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">
+                                <i class="bi bi-info-circle"></i> About Us
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="navbar-buttons d-flex">
+                        <a href="login.html" class="btn btn-custom me-2">Login</a>
+                        <a href="sign-up.html" class="btn btn-custom">Sign Up</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-</header>
-
+        </nav>
+    </header>
 
 <div class="cart-container">
     <h2 class="text-center mb-4">Therapy Session Cart</h2>
@@ -294,7 +309,7 @@ button.btn-purple:hover {
                         <label class="form-label">Card Number</label>
                         <input type="text" class="form-control" placeholder="1234 5678 9012 3456" required>
                     </div>
-                    <button type="submit" id="pay-1000" class="btn btn-purple w-100">Pay ₹1000</button>
+                    <button type="submit" id="pay-1000" class="btn btn-purple w-100">Pay ₹999</button>
                 </form>
             </div>
             <div class="tab-pane fade" id="upi-payment">
@@ -303,7 +318,7 @@ button.btn-purple:hover {
                         <label class="form-label">UPI ID</label>
                         <input type="text" class="form-control" placeholder="example@upi" required>
                     </div>
-                    <button  id="pay-1000" type="submit" class="btn btn-purple w-100">Pay ₹1000</button>
+                    <button  id="pay-1000" type="submit" class="btn btn-purple w-100">Pay ₹999</button>
                 </form>
             </div>
         </div>
@@ -350,45 +365,115 @@ button.btn-purple:hover {
             document.getElementById('proceed-payment').style.display = 'none';
         });
 
-        // Show the modal when the "Pay 1000" button is clicked
-        document.getElementById('pay-1000').addEventListener('click', () => {
-            const modal = document.getElementById('billModal');
-            const billContent = document.getElementById('billContent');
-            modal.style.display = 'flex';
+        
+    document.addEventListener('DOMContentLoaded', () => {
+        // References to input fields, payment button, and modal
+        const cardNumberInput = document.querySelector('#card-payment input[type="text"]');
+        const upiIdInput = document.querySelector('#upi-payment input[type="text"]');
+        const payButton = document.getElementById('pay-1000');
+        const modal = document.getElementById('billModal');
+        const billContent = document.getElementById('billContent');
 
-            // Close the modal when the user clicks on <span> (x)
-            const span = document.getElementsByClassName('close')[0];
-            span.onclick = function() {
-                modal.style.display = 'none';
+        // Function to toggle button state based on input values
+        function togglePayButton() {
+            const cardTabActive = document.querySelector('#card-payment').classList.contains('active');
+            const upiTabActive = document.querySelector('#upi-payment').classList.contains('active');
+            
+            if ((cardTabActive && cardNumberInput.value.trim() !== '') || 
+                (upiTabActive && upiIdInput.value.trim() !== '')) {
+                payButton.disabled = false;
+            } else {
+                payButton.disabled = true;
             }
+        }
+        
+        // Attach event listeners to detect changes in input and toggle button state
+        cardNumberInput.addEventListener('input', togglePayButton);
+        upiIdInput.addEventListener('input', togglePayButton);
 
-            // Close the modal when the user clicks anywhere outside of the modal
-            window.onclick = function(event) {
-                if (event.target == modal) {
+        // Toggle button when switching tabs
+        document.querySelectorAll('[data-bs-toggle="tab"]').forEach(tab => {
+            tab.addEventListener('shown.bs.tab', togglePayButton);
+        });
+
+        // Initial button state on page load
+        togglePayButton();
+
+        // Show modal when the pay button is clicked
+        payButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent form submission
+
+            // Display modal if button is enabled
+            if (!payButton.disabled) {
+                modal.style.display = 'flex';
+                billContent.innerHTML = '<h2>Generating Bill...</h2>';
+
+                // Close modal when clicking the close button
+                const closeBtn = document.getElementsByClassName('close')[0];
+                closeBtn.onclick = () => {
                     modal.style.display = 'none';
                 }
-            }
 
-            // Show "Generating Bill..." message
-            billContent.innerHTML = '<h2>Generating Bill...</h2>';
-             // Wait for 5 seconds
-             setTimeout(() => {
-                const lastBooking = JSON.parse(localStorage.getItem('lastBooking'));
-                if (lastBooking) {
-                    billContent.innerHTML = `
-                        <h2>Appointment Confirmed</h2>
-                        <p><strong>Name:</strong> ${lastBooking.name}</p>
-                        <p><strong>Email:</strong> ${lastBooking.email}</p>
-                        <p><strong>Contact:</strong> ${lastBooking.phone}</p>
-                        <p><strong>Date:</strong> ${lastBooking.date}</p>
-                        <p><strong>Scheduled time:</strong> ${lastBooking.time}</p>
-                        <p><strong>Payment Status:</strong> Paid</p>
-                    `;
-                } else {
-                    billContent.innerHTML = '<p>No booking information found.</p>';
+                // Close modal when clicking outside it
+                window.onclick = (event) => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
                 }
-            }, 2000);
+
+                // Generate bill details after a delay
+                setTimeout(() => {
+                    const lastBooking = JSON.parse(localStorage.getItem('lastBooking'));
+                    if (lastBooking) {
+                        billContent.innerHTML = `
+                            <h2>Appointment Confirmed</h2>
+                            <p><strong>Name:</strong> ${lastBooking.name}</p>
+                            <p><strong>Email:</strong> ${lastBooking.email}</p>
+                            <p><strong>Contact:</strong> ${lastBooking.phone}</p>
+                            <p><strong>Date:</strong> ${lastBooking.date}</p>
+                            <p><strong>Scheduled time:</strong> ${lastBooking.time}</p>
+                            <p><strong>Payment Status:</strong> Paid</p>
+                        `;
+                    } else {
+                        billContent.innerHTML = '<p>No booking information found.</p>';
+                    }
+                }, 2000);
+            }
         });
+    });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+        // References to input fields and payment button
+        const cardNumberInput = document.querySelector('#card-payment input[type="text"]');
+        const upiIdInput = document.querySelector('#upi-payment input[type="text"]');
+        const payButton = document.getElementById('pay-1000');
+        
+        // Function to toggle button state based on input values
+        function togglePayButton() {
+            const cardTabActive = document.querySelector('#card-payment').classList.contains('active');
+            const upiTabActive = document.querySelector('#upi-payment').classList.contains('active');
+            
+            if ((cardTabActive && cardNumberInput.value.trim() !== '') || 
+                (upiTabActive && upiIdInput.value.trim() !== '')) {
+                payButton.disabled = false;
+            } else {
+                payButton.disabled = true;
+            }
+        }
+        
+        // Attach event listeners to detect changes in input
+        cardNumberInput.addEventListener('input', togglePayButton);
+        upiIdInput.addEventListener('input', togglePayButton);
+        
+        // Toggle button when switching tabs
+        document.querySelectorAll('[data-bs-toggle="tab"]').forEach(tab => {
+            tab.addEventListener('shown.bs.tab', togglePayButton);
+        });
+        
+        // Initial state of the pay button on load
+        togglePayButton();
+    });
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
